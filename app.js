@@ -29,9 +29,9 @@ fetch(`https://jsonplaceholder.typicode.com/posts?userId=${postId}`)
     .then((data) => data.json())
     .then((posts) => {
         posts.forEach(post => {
-            // Create a new row for each user
             const row = document.createElement('tr');
             row.innerHTML = `
+            <td>${post.userId}</td>
             <td>${post.id}</td>
             <td>${post.title}</td>
             <td>${post.body}</td>
@@ -52,6 +52,7 @@ fetch(`https://jsonplaceholder.typicode.com/comments?postId=${commentId}`)
             // Create a new row for each user
             const row = document.createElement('tr');
             row.innerHTML = `
+            <td>${comment.postId}</td>
             <td>${comment.id}</td>
             <td>${comment.name}</td>
             <td>${comment.email}</td>
